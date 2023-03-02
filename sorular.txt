@@ -1,0 +1,129 @@
+﻿ÖDEV 2:
+
+Soru 1: Verilen bir dizinin eleman sırasını tersine çevirip bir dizi olarak döndüren diziTersi($dizi1, $dizi2) fonksiyonu yazınız. Sıfır(0) sayısı girilinceye kadar klavyeden girilen sayıları bir diziye yerleştiren ve bu diziyi döndüren diziOku fonksiyonunu yazınız. Verilen bir diziyi her satıra bir sayı gelecek şekilde ekrana yazdıran diziYaz fonksiyonunu yazınız. Verilen bir dizideki sayıları önce diziOku fonksiyonunu çağırarak okuyan, sonra bu diziyi diziTersi fonsiyonunu çağırarak tersine çeviren ve diziYaz fonsiyonunun çağırarak ekrana yazdıran programı veriniz. 
+
+<?php 
+$dizi = diziOku();
+$sonuc = diziTersi($dizi);
+print "Dizinin tersi\n";
+diziYaz($sonuc);
+?>
+
+Örnek çalışma senaryosu:
+--------------------------------------
+Sayıları giriniz (sıfırla bitiriniz)
+2
+3
+4
+0
+Dizinin tersi:
+4
+3
+2
+
+Soru 2: Verilen iki dizinin bir döngüyle karşılıklı elemanları toplamı, çarpımını bir dizi olarak döndüren toplama($kume1, $kume2), carpma($kume1, $kume2), cikarma($kume1, $kume2) fonksiyonlarını yazınız. İki dizideki elemanları diziOku fonksiyonunu çağırarak okuyan sonra bu dizilerin toplam, çarpım ve farklarını ilgili fonksiyonlarını çağırarak bulan ve diziYaz fonksiyonuyla ekrana yazdıran programı veriniz.
+
+<?php 
+print "Birinci dizi için sayiları giriniz(0: bitiş)\n";
+$dizi1 = diziOku();
+print "Ikinci dizi için sayiları giriniz(0: bitiş)\n";
+$dizi2 = diziOku();
+$toplam = toplama($dizi1, $dizi2);
+$carpim = carpma($dizi1, $dizi2);
+$fark = cikarma($dizi1, $dizi2);
+print "Dizlerin toplamı\n";
+diziYaz($toplam);
+print "Dizlerin çarpımı\n";
+diziYaz($carpim);
+print "Dizlerin farkı\n";
+diziYaz($fark);
+?>
+
+Soru 3: Verilen bir dizinin elemanlarını küçükten büyüğe sıralayan diziSirala fonksiyonu yazınız. sort gibi hazır fonksiyon kullanmayınız. Verilen bir dizideki sayıları önce diziOku fonksiyonunu çağırarak okuyan, sonra bu diziyi diziSirala fonsiyonunu çağırarak sıralayan ve diziYaz fonsiyonunun çağırarak ekrana yazdıran programı veriniz. 
+
+Soru 4: Verilen bir dizinin medyanını döndüren diziMedyani fonksiyonu yazınız (Medyan yani orta elemanını bulma: Dizideki sayılar küçükten büyüğe sıralanır. Dizideki eleman sayısı n tek sayıysa, orta eleman tamsayı bölmeyle n/2. elemandır. Eleman sayısı çift sayıysa, orta eleman dizinin ortasındaki 2 elemanın yani (n/2)-1. eleman ve n/2. elemanın ortalamasıdır.) Verilen bir dizideki sayıları önce diziOku fonksiyonunu çağırarak okuyan, sonra bu diziyi diziMedyani fonsiyonunu çağırarak medyanını bulan ve ekrana diziYaz ile yazdıran programı veriniz. diziMedyani fonksiyonu siralama için hazır sort fonksiyonunu kullanabilir.
+
+Soru 5: Verilen iki diziyi küme kabul ederek küme bileşimini, farkını ve kesişimini dizi olarak döndüren birlesim($kume1, $kume2), fark($kume1, $kume2), kesisim($kume1, $kume2) fonksiyonlarını yazınız. İki kümedeki elemanları diziOku fonksiyonunu çağırarak okuyan sonra bu dizilerin bileşimini, farkını ve kesişimini yukardaki fonksiyonlarını çağırarak bulan ve diziYaz fonksiyonuyla ekrana yazdıran programı veriniz.
+
+Soru 6: $metin1 ve $metin2 içerisinde verilen 2 string'in(karakter katarı) içinde geçen karakterlerin (harf, rakam, sembol vs.) küme bileşimini, farkını ve kesişimini string olarak döndüren metinBirlesim($metin1, $metin2), metinfark($metin1, $metin2), metinKesisim($metin1, $metin2) fonksiyonlarını yazınız. İki metni klavyeden okuyarak bunların bileşimini, farkını ve kesişimini yukardaki fonksiyonlarını çağırarak bulan ve sonuçlarını ekrana yazdıran programı veriniz.
+
+//  verilen bir metnin karakterlerini her satıra bir karakter yazan örnek bir program
+<?php
+print "Bir metin giriniz? ";
+$metin1 = fgets(STDIN);
+for($i=0; $i < strlen($metin1); $i = $i + 1){
+	print substr($metin1, $i, 1) ."\n";
+	print $metin1[$i]. "\n";
+}
+?>
+	
+Örnek senaryo:
+
+Birinci metni giriniz?
+istanbul
+İkinci metni giriniz?
+üniversitesi
+Küme birleşimi: istanbulüver
+Küme kesişim: istn
+Küme farkı: abul
+
+Soru 7: $metin1 ve $metin2 içerisinde verilen 2 string'in(karakter katarı) içinde geçen ve birbirinden boşluk karakteriyle ayrılmış kelimelerin küme bileşimini, farkını ve kesişimini dizi olarak döndüren kelimeBirlesim($kume1, $kume2), kelimefark($kume1, $kume2), kelimeKesisim($kume1, $kume2) fonksiyonlarını yazınız. İki metni klavyeden okuyarak bunların bileşimini, farkını ve kesişimini yukardaki fonksiyonlarını çağırarak bulan ve sonuçlarını ekrana yazdıran programı veriniz. String'i kelimelerine ayırmak için substr haricinde hazır fonksiyon kullanmayınız.
+
+Örnek senaryo:
+
+Birinci metni giriniz?
+istanbul üniversitesi
+İkinci metni giriniz?
+cerrahpaşa üniversitesi
+Küme birleşimi: istanbul üniversitesi cerrahpaşa
+Küme kesişim: üniversitesi
+Küme farkı: istanbul
+
+Soru 8:
+(i) Klavyeden girilen kitap adı ve fiyatlarını dizi(ler)de saklayıp (kitap adı boş girilince bilgi girişi biter), 
+(ii) en pahalı ve en ucuz hariç tutularak hesaplanan ortalama kitap fiyatına en yakın kitap(lar)ın ismini yazdıran, 
+(iii) ortalama fiyata olan fiyat uzaklıkların ortalamasını (yani fiyatların standart sapması) bulup yazdıran, 
+
+Bu programı (soru 8) test ederken en az üç farklı fiyat girilecek. Sedece iki veya bir farklı fiyat girilirse program, heaplama yapmayıp yeniden en az 3 farklı kitap/fiyat bilgi girişini baştan talep edecektir. En ucuz ve en pahalı kitap birden fazla varsa onların tamamını ortalama hesabının dışında tutacaksınız.
+
+
+Örnek senaryo:
+
+Kitap adi? safahat
+Kitap fiyati? 25
+Kitap adi? Serguzest
+Kitap fiyati? 35
+Kitap adi? Calikusu
+Kitap fiyati? 10
+Kitap adi? 
+ortalamaya en yakın kitapların fiyatları:
+Serguzest 25TL
+Standart sapma: 7,5
+
+
+
+
+
+
+
+
+
+bos array tanımla
+
+8. do while ile değ=0
+
+do $metin fgets
+trim
+if null break
+while
+i++
+
+goto if sayac <3 goto 
+
+$temp=fiyat[]
+elemanlar toplam
+ortlsms
+farkların toplamnın ortalaması
+
+
+
